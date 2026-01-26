@@ -23,6 +23,10 @@
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-padding-top: 100px;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
