@@ -165,4 +165,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Firework Effect for Hero Image
+    const heroImg = document.querySelector('.hero-image img');
+    if (heroImg) {
+        heroImg.addEventListener('click', (e) => {
+            // Get position of the click/image to center fireworks there if desired,
+            // or just center of screen. Let's do a burst from the click coordinates if possible,
+            // or just a nice general burst. 
+            // canvas-confetti uses normalized coordinates (0-1).
+
+            const rect = heroImg.getBoundingClientRect();
+            // Calculate center of image in normalized coordinates relative to viewport
+            const x = (rect.left + rect.width / 2) / window.innerWidth;
+            const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { x: x, y: y },
+                colors: ['#FFD700', '#FFA500', '#FF4500', '#003366'], // Gold, Orange, Red-Orange, Dark Blue
+                zIndex: 9999
+            });
+        });
+    }
+
 });
